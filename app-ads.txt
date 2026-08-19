@@ -1,0 +1,15 @@
+# app-ads.txt - authorised digital sellers for Yuki (com.emberkite.yuki).
+#
+# Activated 2026-08-19 from app-ads.txt.template, once the AdSense account
+# issued a publisher ID. See that template's header for why an EMPTY or
+# placeholder file is worse than none: a file that lists no valid seller tells
+# every exchange "nobody is authorised to sell my inventory", which blocks ad
+# serving silently.
+#
+# How this is found: crawlers read the Play listing's developer Website field,
+# take that DOMAIN, and fetch /app-ads.txt from its ROOT - which is why this
+# lives here and not under /yuki/, and why the site is a github.io USER site
+# rather than a project site.
+#
+# Allow up to 24h after any change for the crawl to pick it up.
+google.com, pub-2909392249955267, DIRECT, f08c47fec0942fa0
