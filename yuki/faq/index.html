@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuki - frequently asked questions</title>
+<meta name="description" content="Answers about Yuki for Android TV: why it ships with no channels, what Free and Premium include, which devices it runs on, privacy, parental controls and profiles.">
+<link rel="icon" href="/assets/yuki-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="/">dumoleb</a>
+  <nav>
+    <a href="/yuki/">Yuki</a>
+    <a href="/yuki/setup/">Setup</a>
+    <a href="/yuki/faq/">FAQ</a>
+    <a href="/support/">Support</a>
+    <a href="/yuki/privacy/">Privacy</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<h1>Questions people actually ask</h1>
+<p class="lede">
+  Grouped roughly by when they come up - before installing, while setting up, and
+  once you are using it.
+</p>
+
+<h2>Before you install</h2>
+
+<h3>Does Yuki come with channels or films?</h3>
+<p>
+  <strong>No, and it never will.</strong> Yuki hosts, sells and resells nothing. It is
+  a player: you supply an IPTV playlist you already subscribe to, an Xtream Codes
+  portal, or your own Jellyfin server, and Yuki gives it an interface built for a
+  remote control. A music player ships with no music; this is the same arrangement.
+</p>
+
+<h3>Then what am I paying for, if I buy Premium?</h3>
+<p>
+  The player, not the content. Your provider charges you for channels; I charge for
+  the software that makes them pleasant to watch on a television. If you have no
+  provider, Premium will not give you one.
+</p>
+
+<h3>Which devices does it run on?</h3>
+<p>
+  Android TV and Google TV - televisions and streaming boxes. It is deliberately
+  <strong>not</strong> offered to phones and tablets: every screen is laid out for a
+  D-pad, there is no touch handling anywhere in it, and the type is sized to be read
+  from three metres. It would be a poor phone app, so it is not published as one.
+</p>
+
+<h3>Do I need an account?</h3>
+<p>
+  No. There is no Yuki account, no email, no password, nothing to create. If you buy
+  Premium it is tied to the Google account already signed in to your television.
+</p>
+
+<h2>Free and Premium</h2>
+
+<h3>What do I get without paying?</h3>
+<ul>
+  <li>Live TV with dual-engine playback</li>
+  <li>Up to two sources (M3U playlist or Xtream portal)</li>
+  <li>Today's programme guide, plus catch-up and replay where your provider offers it</li>
+  <li>Films and series, including resuming something you did not finish</li>
+  <li>Favourites</li>
+  <li>PIN lock and per-channel locks</li>
+  <li>The full interface in twelve languages</li>
+</ul>
+<p>
+  That is a usable television app, not a demo. Most people never need more.
+</p>
+
+<h3>What does Premium add?</h3>
+<ul>
+  <li>Unlimited sources instead of two</li>
+  <li>The full multi-day programme guide, rather than today's</li>
+  <li>Organising, renaming and grouping your channels</li>
+  <li>Tailoring how the Guide looks</li>
+  <li>Saving films and shows to My List</li>
+  <li>Jellyfin media server support</li>
+  <li>Scheduled locks and screen-time limits</li>
+</ul>
+
+<h3>Annual or lifetime?</h3>
+<p>
+  Both exist. The annual renews each year; the lifetime is one payment that never
+  renews and includes every Premium feature added later. Prices are shown inside the
+  app in your own currency - I do not set them per country by hand, Google converts
+  them.
+</p>
+
+<h3>How do I cancel?</h3>
+<p>
+  Subscriptions are managed by Google, not by me, and - awkwardly - the Play Store on
+  a television has no subscription screen at all. Cancel from a phone or a computer at
+  <code>play.google.com/store/account/subscriptions</code>, signed in with the same
+  Google account. Cancelling keeps Premium running until the period you have already
+  paid for ends.
+</p>
+
+<h3>I paid, and Premium is not on</h3>
+<p>
+  Yuki re-checks with Google Play periodically rather than continuously, so a purchase
+  made moments ago can take a little while to appear - and the same is true in reverse
+  after a refund. Force-stopping and reopening the app usually will <em>not</em> speed
+  this up, because it is a timed re-check rather than one that happens on launch.
+</p>
+<p>
+  If it still has not appeared after a few hours, write to me with the Google account
+  you bought it on and I will look.
+</p>
+
+<h3>Will Premium work on my second television?</h3>
+<p>
+  Yes, with nothing to do. Sign the other television in to the same Google account and
+  Premium is already on the first time you open Yuki. There is no restore button
+  because there is nothing to restore - it is resolved from your Google account
+  automatically.
+</p>
+
+<h2>Setting up</h2>
+
+<h3>My provider gave me a link and a username - which do I choose?</h3>
+<p>
+  Choose <strong>Xtream Codes</strong>. It gives Yuki a proper programme guide, films
+  and series as separate libraries, and catch-up where offered. A plain playlist link
+  can only describe a list of channels. The <a href="/yuki/setup/">setup guide</a>
+  walks through both.
+</p>
+
+<h3>It says it cannot connect, and I am sure the details are right</h3>
+<p>
+  Retype the server address by hand before anything else. A trailing slash, a copied
+  space, or a missing port number account for most of these, and none of them are
+  visible when you look at the field.
+</p>
+
+<h3>Why is the first load so slow?</h3>
+<p>
+  Because it is downloading your entire channel list and, where your provider supplies
+  it, several days of programme listings for potentially thousands of channels. It
+  happens once; afterwards Yuki refreshes quietly in the background.
+</p>
+
+<h3>Some channels do not play, but others do</h3>
+<p>
+  That is almost always the stream itself rather than the app. Yuki already tries a
+  second, more tolerant playback engine automatically when the first one fails, which
+  rescues many awkward streams - but a stream that is offline, geo-blocked or simply
+  broken at the provider cannot be fixed from here. If the <em>same</em> channels fail
+  for you in another player, it is the provider.
+</p>
+
+<h3>Where is catch-up? I cannot find it in the menu</h3>
+<p>
+  It lives in the <strong>Guide</strong>, not in a menu of its own: move back through
+  the programme grid to something that has already aired and open it. A dedicated
+  catch-up screen is not part of this release.
+</p>
+
+<h2>Living with it</h2>
+
+<h3>Can everyone in the house have their own setup?</h3>
+<p>
+  Yes. Each profile keeps its own favourites, viewing history and resume positions,
+  and its own preferences like text size and row order. What belongs to the television
+  rather than the person - your connected sources, the parental PIN, the app's
+  language - is shared, which is usually what you want.
+</p>
+
+<h3>I forgot my parental PIN</h3>
+<p>
+  I cannot recover it. The PIN never leaves your television and I have no copy of it,
+  which is precisely what makes it worth having. Clearing the app's data from Android
+  settings resets it, at the cost of your sources and settings.
+</p>
+
+<h3>Is the text too small from where I sit?</h3>
+<p>
+  Settings has a text-size control that applies across the whole app rather than to
+  one screen, along with a high-visibility focus option and a control for how long
+  menus stay on screen. They are worth a minute if you sit further back than usual.
+</p>
+
+<h3>Which languages are there?</h3>
+<p>
+  Twelve: English, Hebrew, Arabic, Russian, Spanish, French, German, Portuguese,
+  Italian, Greek, Turkish and Polish. Hebrew and Arabic mirror the entire interface,
+  not only the text. All twelve ship inside the app, so switching works offline and
+  needs no download.
+</p>
+
+<h3>What do you know about what I watch?</h3>
+<p>
+  Nothing. There is no Yuki server for it to go to. Your playlists, credentials,
+  favourites and viewing history stay on your television. What does leave the device
+  is listed in full in the <a href="/yuki/privacy/">privacy policy</a> - and the app
+  sends no event about what you watch, which channels you have, or which provider you
+  use.
+</p>
+
+<h3>Something is wrong and none of this covers it</h3>
+<p>
+  Try the <a href="/yuki/troubleshooting/">troubleshooting page</a> - it works through
+  the app's actual error messages one by one, so you can search it for the exact
+  words on your screen. If that does not cover it, write to
+  <a href="mailto:dumoleb@gmail.com">dumoleb@gmail.com</a>; the
+  <a href="/support/">support page</a> lists the handful of details that turn a week
+  of guessing into a same-day fix.
+</p>
+
+<div class="note">
+  <strong>Never send your playlist URL, portal password or server login</strong> - to me
+  or to anyone. I have no access to your provider and cannot use them to help you, and
+  they are everything somebody would need to take over your subscription.
+</div>
+
+</main>
+
+<footer class="site">
+  <span>&copy; 2026 dumoleb</span>
+  <a href="/">Home</a>
+  <a href="/yuki/">Yuki</a>
+  <a href="/support/">Support</a>
+  <a href="/yuki/privacy/">Privacy policy</a>
+</footer>
+
+</body>
+</html>

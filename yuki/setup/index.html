@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuki - setup guide</title>
+<meta name="description" content="How to set up Yuki on Android TV: adding an M3U playlist, an Xtream Codes portal or a Jellyfin server, plus the programme guide, favourites and parental controls.">
+<link rel="icon" href="/assets/yuki-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="/">dumoleb</a>
+  <nav>
+    <a href="/yuki/">Yuki</a>
+    <a href="/yuki/setup/">Setup</a>
+    <a href="/yuki/faq/">FAQ</a>
+    <a href="/support/">Support</a>
+    <a href="/yuki/privacy/">Privacy</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<h1>Setting up Yuki</h1>
+<p class="lede">
+  From a fresh install to watching, in about five minutes. Everything here is done
+  with the remote control - there is no phone app, no pairing step and no account
+  to create.
+</p>
+
+<div class="note">
+  <strong>You need your own source.</strong> Yuki ships with no channels and no
+  films. It plays what <em>you</em> point it at: an IPTV playlist you subscribe to,
+  an Xtream Codes portal, or your own Jellyfin server. If you do not have one of
+  those yet, nothing below will show any content - that is expected, not a fault.
+</div>
+
+<h2>1. First run: choose your language</h2>
+<p>
+  The first screen offers twelve languages - English, Hebrew, Arabic, Russian,
+  Spanish, French, German, Portuguese, Italian, Greek, Turkish and Polish. Pick one
+  and press the centre button. Right-to-left languages mirror the whole interface,
+  not just the text.
+</p>
+<p class="muted">
+  You can change this later in Settings, and nothing you set up is lost when you do.
+</p>
+
+<h2>2. Choose how your provider gives you access</h2>
+<p>
+  The next screen asks a single question, and the answer decides everything that
+  follows. Three kinds of source are supported:
+</p>
+
+<table>
+  <tr><th>Choose this</th><th>When your provider gave you</th></tr>
+  <tr>
+    <td><strong>M3U / M3U8 playlist</strong></td>
+    <td>A single long web link, usually ending in <code>.m3u</code> or
+        <code>.m3u8</code>, sometimes called a "playlist URL" or "line"</td>
+  </tr>
+  <tr>
+    <td><strong>Xtream Codes</strong></td>
+    <td>Three separate things: a server address, a username and a password</td>
+  </tr>
+  <tr>
+    <td><strong>Jellyfin server</strong></td>
+    <td>Your own media server at home - an address and your Jellyfin login</td>
+  </tr>
+</table>
+
+<p>
+  If you were given both a playlist link <em>and</em> a username and password, prefer
+  <strong>Xtream Codes</strong>. It gives Yuki more to work with: a proper programme
+  guide, films and series as separate libraries, and catch-up where your provider
+  offers it. A plain playlist link can only describe a list of channels.
+</p>
+
+<h3>Adding an M3U playlist</h3>
+<p>
+  Choose <strong>M3U / M3U8 playlist</strong>, then type or paste the link. On a
+  television the on-screen keyboard is the slow part - if the link is long, it is
+  worth pasting it from a keyboard app or a USB keyboard if you have one attached.
+</p>
+<p>
+  Give the source a name you will recognise later ("Living room provider" is more
+  useful than "Playlist 1"), and press <strong>Add</strong>. Yuki downloads the list
+  and tells you how many channels it found.
+</p>
+
+<h3>Adding an Xtream Codes portal</h3>
+<p>
+  Choose <strong>Xtream Codes</strong> and fill in the three fields exactly as your
+  provider sent them:
+</p>
+<ul>
+  <li><strong>Server address</strong> - often looks like <code>http://example.com:8080</code>.
+      Include the port number if there is one, and do not add anything after it.</li>
+  <li><strong>Username</strong> - case-sensitive.</li>
+  <li><strong>Password</strong> - also case-sensitive.</li>
+</ul>
+<p>
+  A common cause of "cannot connect" here is a trailing slash or a copied space at
+  the end of a field. If it fails, retype the server address by hand before assuming
+  the credentials are wrong.
+</p>
+
+<h3>Adding a Jellyfin server</h3>
+<p>
+  Choose <strong>Jellyfin server</strong>, enter your server's address and sign in
+  with your Jellyfin username and password. If your server runs on your home network,
+  use its local address; if you reach it from outside, use the address you normally
+  use in a browser.
+</p>
+
+<h2>3. Wait for the first load</h2>
+<p>
+  The first load is the slowest one. Yuki downloads your channel list and, where your
+  provider supplies it, the programme guide - which can be several days of listings
+  for thousands of channels. After that it refreshes quietly in the background and
+  you should not see this wait again.
+</p>
+
+<h2>4. Find your way around</h2>
+<table>
+  <tr><th>Where</th><th>What is there</th></tr>
+  <tr><td><strong>Home</strong></td><td>What you were watching, and quick routes back into it</td></tr>
+  <tr><td><strong>Channels</strong></td><td>Your full channel list, with what is on now</td></tr>
+  <tr><td><strong>Guide</strong></td><td>The programme grid - what is on now, later, and already aired</td></tr>
+  <tr><td><strong>Movies</strong> and <strong>Series</strong></td><td>Films and shows, when your source provides them</td></tr>
+  <tr><td><strong>Settings</strong></td><td>Sources, appearance, accessibility, parental controls</td></tr>
+</table>
+
+<h2>5. While watching</h2>
+<p>
+  Press the centre button during playback to bring up the overlay without stopping
+  what you are watching. From there you can reach the channel list, the schedule for
+  the channel you are on, and the audio and subtitle tracks. Press
+  <strong>Back</strong> to dismiss it.
+</p>
+<p>Two shortcuts are worth learning, because they skip the overlay entirely:</p>
+<table>
+  <tr><th>Press and hold</th><th>Opens</th></tr>
+  <tr><td><strong>Down</strong></td><td>The channel list, over what you are watching</td></tr>
+  <tr><td><strong>Up</strong></td><td>The schedule for the current channel</td></tr>
+</table>
+<p>
+  If a stream refuses to play, Yuki retries it with a second playback engine before
+  giving up - many awkward streams that fail elsewhere simply work here, without you
+  doing anything.
+</p>
+
+<h2>6. Watching something that has already aired</h2>
+<p>
+  Where your provider supports catch-up, you reach it through the <strong>Guide</strong>
+  rather than through a menu of its own: move back through the programme grid to a show
+  that has already finished and open it. If that particular programme is not available
+  to replay, Yuki says so rather than failing silently.
+</p>
+<p class="muted">
+  Catch-up depends entirely on your provider. Two channels on the same subscription
+  can differ, and how far back it reaches is their decision, not the app's.
+</p>
+
+<h2>7. Worth setting up once</h2>
+
+<h3>Favourites</h3>
+<p>
+  Mark the channels you actually watch. A list of eight favourites is far more useful
+  on a sofa than a list of eight hundred channels, and it survives a playlist refresh.
+</p>
+
+<h3>Parental controls</h3>
+<p>
+  Settings has a PIN, per-channel locks, and scheduled locks and screen-time limits.
+  The PIN protects the settings themselves, so a child cannot simply switch the locks
+  off. It is stored on your television and is not recoverable by me - write it down.
+</p>
+
+<h3>Accessibility</h3>
+<p>
+  Text size, high-visibility focus and how long menus stay on screen are all
+  adjustable, and they apply across the whole app rather than to one screen. If you
+  sit further than three metres from the television, the larger text steps are worth
+  a try.
+</p>
+
+<h3>Profiles</h3>
+<p>
+  Each person in the house can have their own profile, with their own favourites,
+  viewing history and resume positions. Changing your text size or your row order
+  does not change anyone else's. Connected sources and the parental PIN belong to the
+  television and are shared.
+</p>
+
+<h2>If something does not work</h2>
+<p>
+  Start with the <a href="/yuki/troubleshooting/">troubleshooting page</a>, which
+  explains what each of Yuki's error messages means. If nothing there fits, the
+  <a href="/support/">support page</a> lists the few details
+  that turn a week of guessing into a same-day fix. The most common causes are a
+  mistyped server address, an expired subscription, and a provider that is simply
+  down - none of which the app can tell apart from the outside without your help.
+</p>
+
+<div class="note">
+  <strong>Never send anyone your playlist URL, portal password or server login</strong> -
+  including me. I have no access to your provider and cannot use them to help you, and
+  they are all somebody would need to use your subscription.
+</div>
+
+</main>
+
+<footer class="site">
+  <span>&copy; 2026 dumoleb</span>
+  <a href="/">Home</a>
+  <a href="/yuki/">Yuki</a>
+  <a href="/support/">Support</a>
+  <a href="/yuki/privacy/">Privacy policy</a>
+</footer>
+
+</body>
+</html>

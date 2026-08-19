@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuki - troubleshooting</title>
+<meta name="description" content="What Yuki's error messages mean and what to do about them: playlists that will not import, channels that will not play, a missing programme guide, buffering, and Jellyfin sign-in problems.">
+<link rel="icon" href="/assets/yuki-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="/">dumoleb</a>
+  <nav>
+    <a href="/yuki/">Yuki</a>
+    <a href="/yuki/setup/">Setup</a>
+    <a href="/yuki/faq/">FAQ</a>
+    <a href="/support/">Support</a>
+    <a href="/yuki/privacy/">Privacy</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<h1>Troubleshooting</h1>
+<p class="lede">
+  Yuki's messages are written to say what actually went wrong rather than "an error
+  occurred". This page explains what each one means and what usually fixes it.
+</p>
+
+<div class="note">
+  <strong>One idea worth holding on to.</strong> Yuki talks to a server that belongs to
+  someone else - your IPTV provider, or your own Jellyfin machine. A large share of
+  problems are that server saying no, and no setting in the app can overrule it. The
+  messages below try to tell you honestly which side of that line you are on.
+</div>
+
+<h2>Adding a playlist</h2>
+
+<h3>"Couldn't reach this URL. Check your internet and the address."</h3>
+<p>
+  Nothing answered at all. Either the television is offline, or the address is wrong in
+  a way that means nothing is listening - a typo in the host, or a missing or wrong port
+  number. Open something else on the television to prove the connection, then retype
+  the address by hand rather than trusting a paste.
+</p>
+
+<h3>"The server responded with an error (HTTP 401 / 403). Check the URL."</h3>
+<p>
+  The server answered, and refused. Those two codes almost always mean the subscription
+  has expired, the credentials in the link are wrong, or the provider has capped how
+  many devices can use it at once. Yuki is being told no by name - only your provider
+  can change that answer.
+</p>
+
+<h3>"The server responded with an error (HTTP 404)."</h3>
+<p>
+  The server is there but the path is not. Usually a truncated link - long playlist URLs
+  are easy to cut short when copying.
+</p>
+
+<h3>"The playlist took too long to download. Try again or check the URL."</h3>
+<p>
+  A timeout, not a refusal. Very large playlists on a slow connection genuinely can
+  exceed it, and so can a provider under load. Trying again a few minutes later is a
+  reasonable first move; if it never completes, the provider is the place to ask.
+</p>
+
+<h3>The import finished but there are far fewer channels than expected</h3>
+<p>
+  Then the playlist itself is what your provider served. Yuki imports what it is given
+  and does not filter anything out. If the same link produces more channels elsewhere,
+  send me the details from the <a href="/support/">support page</a> and I will look -
+  but check first that you are not looking at a filtered view, such as a single group or
+  your favourites.
+</p>
+
+<h2>Watching</h2>
+
+<h3>"This channel's stream is not available. Please contact your content provider."</h3>
+<p>
+  This message means something specific: Yuki tried <strong>every</strong> way it has of
+  playing that stream, including the second, more tolerant playback engine, and all of
+  them failed. It is not a first complaint - it is what is left after the automatic
+  retries are exhausted.
+</p>
+<p>
+  In practice that is a stream which is off the air, geo-blocked, or broken at the
+  provider. The wording is deliberate: at this point the provider really is the only
+  party who can fix it.
+</p>
+
+<h3>One channel fails and the rest are fine</h3>
+<p>
+  Almost always that single stream, not the app or your connection - the others are
+  proof the connection works. Worth trying at a different time of day: providers
+  frequently have channels that only fail under load.
+</p>
+
+<h3>Everything stutters or buffers</h3>
+<p>
+  Buffering means the video is arriving more slowly than it is being watched. In order
+  of how often it turns out to be the cause:
+</p>
+<ul>
+  <li><strong>The provider is overloaded</strong> - typically evenings and live sport.
+      Same channel, better at 3pm, is the tell.</li>
+  <li><strong>Wi-Fi</strong> - televisions are often the worst-placed device in the
+      house. If you can test with a cable, that answers it in one step.</li>
+  <li><strong>The stream's own bitrate</strong> - a 4K feed on a connection that cannot
+      sustain it will never settle, no matter how long it buffers.</li>
+</ul>
+<p class="muted">
+  Yuki cannot make a stream arrive faster than your provider sends it. What it does do
+  is switch playback engine automatically when a stream will not start at all, which is
+  a different problem from one that starts and stutters.
+</p>
+
+<h3>"This stream can't be moved to a different position."</h3>
+<p>
+  You tried to skip within something the server will not let you seek in. Live streams
+  usually cannot be scrubbed, and some films and series are served in a form that does
+  not support it either. Playback itself is unaffected.
+</p>
+
+<h2>The programme guide</h2>
+
+<h3>There is no guide data, or only the current programme</h3>
+<p>
+  Guide data comes from your provider, not from Yuki, and providers vary enormously:
+  some send a fortnight, some send today, some send nothing at all. An Xtream Codes
+  portal generally carries a much better guide than a plain M3U playlist - if you have
+  both kinds of access, that alone is a reason to prefer the portal.
+</p>
+
+<h3>"Catchup not available for this program" / "no longer available for catchup"</h3>
+<p>
+  Two different answers. The first means that programme was never offered for replay;
+  the second means it was, and the window has closed. How far back catch-up reaches is
+  your provider's decision and varies channel by channel on the same subscription.
+</p>
+<p>
+  Catch-up is reached through the <strong>Guide</strong> - move back to a programme that
+  has already aired and open it. There is no separate catch-up screen in this release.
+</p>
+
+<h3>"Starts later - preview not available"</h3>
+<p>
+  You have selected a programme that has not begun. Nothing is wrong; there is simply
+  nothing to show yet.
+</p>
+
+<h2>Jellyfin</h2>
+
+<h3>"Can't reach your Jellyfin server right now. Check it's on and connected."</h3>
+<p>
+  Nothing answered. Confirm the machine is awake - servers that sleep are a common
+  cause - and that you are using an address the television can actually reach. A local
+  address only works while the television is on the same network.
+</p>
+
+<h3>"Sign-in was incorrect. Check your details and try again."</h3>
+<p>
+  The server answered and rejected the credentials. Both fields are case-sensitive.
+</p>
+
+<h3>"This account can't access any libraries on the server."</h3>
+<p>
+  Sign-in succeeded, but that Jellyfin user has not been granted any libraries. Fix it
+  in Jellyfin's own user settings - it is a permission on the server, not a Yuki setting.
+</p>
+
+<h2>Sources and refreshing</h2>
+
+<h3>A source shows "failed" after a refresh</h3>
+<p>
+  Your source is still configured - that refresh attempt failed, which is not the same
+  as the source being broken. The app says so in as many words: <em>"Your sources are
+  still set up - this read just failed."</em> Refreshes retry on their own, and most
+  transient failures resolve without you doing anything.
+</p>
+
+<h3>I changed my playlist and the old channels are still there</h3>
+<p>
+  Yuki keeps what it has until a refresh succeeds - deleting your channel list because
+  one download failed would be much worse behaviour. Refresh the source from Settings to
+  pull the new list immediately.
+</p>
+
+<h2>Purchases</h2>
+
+<h3>I bought Premium and it has not unlocked</h3>
+<p>
+  Yuki re-checks with Google Play on a timer rather than on every launch, so a very
+  recent purchase can take a while to appear - and force-stopping the app will not hurry
+  it along, because the check is not triggered by opening the app. If it has still not
+  appeared after several hours, write to me.
+</p>
+
+<h3>I cannot find where to cancel</h3>
+<p>
+  Not your fault: the Play Store on a television has no subscription screen at all. Use
+  a phone or a computer, at <code>play.google.com/store/account/subscriptions</code>,
+  signed in with the same Google account.
+</p>
+
+<h2>When it is worth writing to me</h2>
+<p>
+  If the answer above points at your provider, asking them first will nearly always be
+  faster. If it points at the app - or nothing here fits - the
+  <a href="/support/">support page</a> lists the few details that let me reproduce a
+  problem instead of guessing at it.
+</p>
+
+<div class="note">
+  <strong>Never send your playlist URL, portal password or server login</strong> - to me
+  or to anyone. I have no access to your provider and cannot use them to help you, and
+  they are everything somebody would need to take over your subscription.
+</div>
+
+</main>
+
+<footer class="site">
+  <span>&copy; 2026 dumoleb</span>
+  <a href="/">Home</a>
+  <a href="/yuki/">Yuki</a>
+  <a href="/support/">Support</a>
+  <a href="/yuki/privacy/">Privacy policy</a>
+</footer>
+
+</body>
+</html>
